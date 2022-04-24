@@ -103,7 +103,7 @@ services:
       - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_4:/datadir/geth"
     ports:
-      - "40305:30303"
+      - "40304:30303"
     restart: always
 
   validator_5:
