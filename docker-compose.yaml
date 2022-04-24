@@ -2,9 +2,8 @@ version: "3"
 services:
 
   bootnode:
-    image: ankrnetwork/bas-template-bsc:devel
+    image: domecloud/jfin-validator-node
     command:
-      - "geth"
       - "--datadir=/datadir"
       - "--genesis=/datadir/genesis.json"
       - "--networkid=3501"
@@ -17,10 +16,10 @@ services:
       - "30303:30303"
     restart: always
 
-  validator_3:
-    image: ankrnetwork/bas-template-bsc:devel
+  validator_1:
+    image: domecloud/jfin-validator-node
     command:
-      - "geth"
+      
       - "--datadir=/datadir"
       - "--genesis=/datadir/genesis.json"
       - "--mine"
@@ -37,11 +36,12 @@ services:
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_3:/datadir/geth"
+    ports:
+      - "40301:30303"
     restart: always
-  validator_4:
-    image: ankrnetwork/bas-template-bsc:devel
+  validator_2:
+    image: domecloud/jfin-validator-node
     command:
-      - "geth"
       - "--datadir=/datadir"
       - "--genesis=/datadir/genesis.json"
       - "--mine"
@@ -58,11 +58,12 @@ services:
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_4:/datadir/geth"
+    ports:
+      - "40302:30303"
     restart: always
-  validator_5:
-    image: ankrnetwork/bas-template-bsc:devel
+  validator_3:
+    image: domecloud/jfin-validator-node
     command:
-      - "geth"
       - "--datadir=/datadir"
       - "--genesis=/datadir/genesis.json"
       - "--mine"
@@ -79,12 +80,13 @@ services:
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_5:/datadir/geth"
+    ports:
+      - "40303:30303"
     restart: always
 
   rpc:
-    image: ankrnetwork/bas-template-bsc:devel
+    image: domecloud/jfin-validator-node
     command:
-      - "geth"
       - "--datadir=/datadir"
       - "--genesis=/datadir/genesis.json"
       - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
