@@ -34,7 +34,7 @@ services:
       - "./genesis.json:/datadir/genesis.json"
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
-      - "./datadir/validator_3:/datadir/geth"
+      - "./datadir/validator_1:/datadir/geth"
     ports:
       - "40301:30303"
     restart: always
@@ -56,7 +56,7 @@ services:
       - "./genesis.json:/datadir/genesis.json"
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
-      - "./datadir/validator_4:/datadir/geth"
+      - "./datadir/validator_2:/datadir/geth"
     ports:
       - "40302:30303"
     restart: always
@@ -78,7 +78,7 @@ services:
       - "./genesis.json:/datadir/genesis.json"
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
-      - "./datadir/validator_5:/datadir/geth"
+      - "./datadir/validator_3:/datadir/geth"
     ports:
       - "40303:30303"
     restart: always
@@ -101,7 +101,7 @@ services:
       - "./genesis.json:/datadir/genesis.json"
       - "./keystore:/datadir/keystore"
       - "./password.txt:/datadir/password.txt"
-      - "./datadir/validator_5:/datadir/geth"
+      - "./datadir/validator_4:/datadir/geth"
     ports:
       - "40305:30303"
     restart: always
