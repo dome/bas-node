@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   bootnode:
     image: domecloud/jfin-validator-node
     command:
@@ -25,8 +24,8 @@ services:
       - "--mine"
       - "--password=/datadir/password.txt"
       - "--allow-insecure-unlock"
-      - "--unlock=0xa6ff33e3250cc765052ac9d7f7dfebda183c4b9b"
-      - "--miner.etherbase=0xa6ff33e3250cc765052ac9d7f7dfebda183c4b9b"
+      - "--unlock=0xe8391988483355e6a8170AC10f5726D4868e5C68"
+      - "--miner.etherbase=0xe8391988483355e6a8170AC10f5726D4868e5C68"
       - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
       - "--gcmode=archive"
       - "--syncmode=full"
@@ -47,8 +46,8 @@ services:
       - "--mine"
       - "--password=/datadir/password.txt"
       - "--allow-insecure-unlock"
-      - "--unlock=0x49c0f7c8c11a4c80dc6449efe1010bb166818da8"
-      - "--miner.etherbase=0x49c0f7c8c11a4c80dc6449efe1010bb166818da8"
+      - "--unlock=0x6DE767908d0d792385200E30d66A5696B24f709c"
+      - "--miner.etherbase=0x6DE767908d0d792385200E30d66A5696B24f709c"
       - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
       - "--gcmode=archive"
       - "--syncmode=full"
@@ -69,8 +68,8 @@ services:
       - "--mine"
       - "--password=/datadir/password.txt"
       - "--allow-insecure-unlock"
-      - "--unlock=0x8e1ea6eaa09c3b40f4a51fcd056a031870a0549a"
-      - "--miner.etherbase=0x8e1ea6eaa09c3b40f4a51fcd056a031870a0549a"
+      - "--unlock=0xa22fD0F35d2416eC293E2D00A8eB0c3Bc633Aa91"
+      - "--miner.etherbase=0xa22fD0F35d2416eC293E2D00A8eB0c3Bc633Aa91"
       - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
       - "--gcmode=archive"
       - "--syncmode=full"
@@ -82,6 +81,52 @@ services:
       - "./datadir/validator_5:/datadir/geth"
     ports:
       - "40303:30303"
+    restart: always
+
+  validator_4:
+    image: domecloud/jfin-validator-node
+    command:
+      - "--datadir=/datadir"
+      - "--genesis=/datadir/genesis.json"
+      - "--mine"
+      - "--password=/datadir/password.txt"
+      - "--allow-insecure-unlock"
+      - "--unlock=0xCd4A92A21539Fd2b50d1ecabce89cCf7294100C8"
+      - "--miner.etherbase=0xCd4A92A21539Fd2b50d1ecabce89cCf7294100C8"
+      - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
+      - "--gcmode=archive"
+      - "--syncmode=full"
+      - "--networkid=3501"
+    volumes:
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/validator_5:/datadir/geth"
+    ports:
+      - "40305:30303"
+    restart: always
+
+  validator_5:
+    image: domecloud/jfin-validator-node
+    command:
+      - "--datadir=/datadir"
+      - "--genesis=/datadir/genesis.json"
+      - "--mine"
+      - "--password=/datadir/password.txt"
+      - "--allow-insecure-unlock"
+      - "--unlock=0x88Cf3c2a965e2636155bCEf7264B805E8f57EF97"
+      - "--miner.etherbase=0x88Cf3c2a965e2636155bCEf7264B805E8f57EF97"
+      - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@192.168.100.10:30303"
+      - "--gcmode=archive"
+      - "--syncmode=full"
+      - "--networkid=3501"
+    volumes:
+      - "./genesis.json:/datadir/genesis.json"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
+      - "./datadir/validator_5:/datadir/geth"
+    ports:
+      - "40305:30303"
     restart: always
 
   rpc:
